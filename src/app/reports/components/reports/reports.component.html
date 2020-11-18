@@ -1,7 +1,5 @@
 <div class="report-list" *ngFor="let report of reports">
-    <a [routerLink]="['/reports', report.id]">
-        <strong>{{report.title}}</strong>
-    </a>
-    {{report.description}}
+    <a class="report-list__link" [routerLink]="['/reports', report.id]">{{report.title}}</a>
+    <div class="report-list__description">{{report.description}}</div>
 </div>
 <router-outlet></router-outlet>

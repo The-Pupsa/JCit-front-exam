@@ -30,7 +30,7 @@ export class ReportsService {
 
                 observer.next(reports);
 
-            }, 1000);
+            }, 0);
         });
         return data$;
     }
@@ -47,7 +47,7 @@ export class ReportsService {
                     throw new Error('no available data');
                 }
                 observer.next(data);
-            }, 1000);
+            }, 0);
         });
         return data$;
     }

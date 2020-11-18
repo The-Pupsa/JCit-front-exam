@@ -12,16 +12,17 @@ export class ReportsComponent implements OnInit {
 
     sub: Subscription;
     reports: Report[];
+    ready: boolean = false;
 
     constructor(
         private reportsService: ReportsService,
     ) {
         this.sub = reportsService.getReportsList().subscribe(data => {
             this.reports = data;
+            this.ready = true;
         });
     }
 
     ngOnInit() {
     }
-
 }

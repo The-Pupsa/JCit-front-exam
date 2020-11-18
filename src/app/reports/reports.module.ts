@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ReportComponent} from './components/report/report.component';
 import {ReportsComponent} from './components/reports/reports.component';
 import {RouterModule} from '@angular/router';
+import {MaterialModule} from '../material-module';
 
 @NgModule({
     declarations: [
@@ -10,6 +11,7 @@ import {RouterModule} from '@angular/router';
         ReportsComponent],
     imports: [
         CommonModule,
+        MaterialModule,
         RouterModule.forChild([
             {
                 path: '', component: ReportsComponent, children: [

@@ -1,9 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from 'rxjs';
+import {MatPaginator} from '@angular/material/paginator';
 import {ReportsService} from '../../services/reports.service';
-import {ReportOptions} from '../../types/reports.types';
+import {ReportOptions, IIndexing} from '../../types/reports.types';
 import {Report} from '../../models/report';
 import {ActivatedRoute, Params} from '@angular/router';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
     selector: 'app-report',
@@ -12,6 +14,11 @@ import {ActivatedRoute, Params} from '@angular/router';
 })
 export class ReportComponent implements OnInit {
     sub: Subscription;
+    displayedColumns: string[] = [];
+    columnsToDisplay: string[] = [];
+    data: MatTableDataSource<any>;
+
+    @ViewChild(MatPaginator) paginator: MatPaginator;
 
     constructor(
         private reportsService: ReportsService,
@@ -26,10 +33,11 @@ export class ReportComponent implements OnInit {
             };
 
             this.sub = this.reportsService.getReportData(options).subscribe((data: Report) => {
-                console.warn(data);
-            });
+                this.displayedColumns = this.columnsToDisplay = data.getColumnsList();
+                this.data = new MatTableDataSource<any>(data.createDataSet());
+                this.data.paginator = this.paginator;
 
+            });
         });
     }
-
 }

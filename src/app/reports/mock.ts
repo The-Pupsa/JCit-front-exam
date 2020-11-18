@@ -4,16 +4,6 @@ export const dataReports = [
         title: 'Report 1',
         description: 'Description 1'
     },
-    {
-        id: 'key_2',
-        title: 'Report 2',
-        description: 'Description 2'
-    },
-    {
-        id: 'key_3',
-        title: 'Report 3',
-        description: 'Description 3'
-    },
 ];
 
 export const dataReport = {

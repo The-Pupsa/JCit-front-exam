@@ -20,3 +20,7 @@ export enum MetricType {
     absolute = 'absolute',
     relative = 'relative',
 }
+
+export interface IIndexing<T> {
+    [key: string]: T;
+}

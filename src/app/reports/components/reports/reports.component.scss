@@ -1,0 +1,10 @@
+@import "../../../variables";
+
+.report-list {
+  margin-bottom: 20px;
+
+  &__link {
+    color: $primary-color;
+    font-weight: bold;
+  }
+}
