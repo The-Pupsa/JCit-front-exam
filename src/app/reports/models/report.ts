@@ -40,7 +40,7 @@ export class Report {
     }
 
     public getColumnsList(): string[] {
-        return this.meta.columns.map((item: Column) => item.key);
+        return this.meta.columns.map((item: Column) => item.title);
     }
 
 }
