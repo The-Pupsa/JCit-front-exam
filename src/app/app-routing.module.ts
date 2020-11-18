@@ -5,7 +5,7 @@ import {ReportsModule} from './reports/reports.module';
 
 const routes: Routes = [
     {path: '', component: HomeComponent, pathMatch: 'full'},
-    {path: 'reports', loadChildren: './reports/reports.module#ReportsModule'}
+    {path: 'reports', loadChildren: () => import('./reports/reports.module').then(m => m.ReportsModule)}
 ];
 
 @NgModule({
